@@ -5,6 +5,7 @@ def selection_sort(list_a):
     # declare a variable to store the range of the list starting from index 0 to the ending -1.
     # -1 because the last item will be "technically sorted"
     indexing_length = range(0, len(list_a)-1)
+    count = 0
 
     for i in indexing_length:  # outer loop
         # store the minimum value automatically as the first item.
@@ -20,9 +21,13 @@ def selection_sort(list_a):
         # Swap them.
         if min_value != i:
             list_a[min_value], list_a[i] = list_a[i], list_a[min_value]
+            count += 1
 
     # Return the sorted list
-    return list_a
+    return list_a, count
 
 
-print(selection_sort([1, 4, 7, 8, 10, 5, 7, 9, 8, 3, 2]))
+sorted_list, swap_count = selection_sort([1, 4, 7, 8, 10, 5, 7, 9, 8, 3, 2])
+
+print("Sorted List: ", sorted_list)
+print("Swap Count: ", swap_count)
